@@ -16,10 +16,10 @@ pipeline = Pipeline(steps=[('preprocessor', preprocessor),
                           ])
 df = pd.read_csv("titanic.csv")
 
-X = df.drop("Survived", axis=1)
-y = df["Survived"]
-
-X_train, X_valid, y_train, y_valid = train_test_split(X, y, random_state=0)
+X_train = pd.read_csv("train/X_train.csv")
+y_train = pd.read_csv("train/y_train.csv")["Survived"]
+X_valid = pd.read_csv("test/X_test.csv")
+y_valid = pd.read_csv("test/y_test.csv")["Survived"]
 pipeline.fit(X_train, y_train)
 preds = pipeline.predict(X_valid)
 print('Model accuracy score:', accuracy_score(y_valid, preds))
