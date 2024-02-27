@@ -6,8 +6,7 @@ import numpy as np
 import os
 import pandas as pd
   
-df = pd.read_csv("titanic.csv")
-X = df.drop("Survived", axis=1)
+X = pd.read_csv("train/X_train.csv")
 
 numerical_cols = [cname for cname in X.columns if X[cname].dtype in ['int64', 'float64']]
 categorical_cols = [cname for cname in X.columns if X[cname].dtype == "object"]
