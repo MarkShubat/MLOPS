@@ -9,16 +9,16 @@ def save_datasets(X_train, X_test, y_train, y_test):
         if not os.path.exists(ext_dir):
             os.mkdir(ext_dir)
 
-    np.save("train/X_train.npy", X_train)
-    np.save("train/y_train.npy", y_train)
-    np.save("test/X_test.npy", X_test)
-    np.save("test/y_test.npy", y_test)
+    X_train.to_csv("train/X_train.csv")
+    y_train.to_csv("train/y_train.csv")
+    X_test.to_csv("test/X_test.csv")
+    y_test.to_csv("test/y_test.csv")
 
 
 df = pd.read_csv("titanic.csv")
 
-X = df.drop("Survived", axis=1).values
-y = df["Survived"].values
+X = df.drop("Survived", axis=1)
+y = df["Survived"]
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.20, random_state=1
