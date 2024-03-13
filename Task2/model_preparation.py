@@ -14,7 +14,7 @@ model = RandomForestClassifier(n_estimators=100, random_state=0)
 pipeline = Pipeline(steps=[('preprocessor', preprocessor),
                            ('model', model)
                           ])
-df = pd.read_csv("titanic.csv")
+df = pd.read_csv("MLOPS/Task2/titanic.csv")
 
 X = pd.read_csv("train/X_train.csv")
 y = pd.read_csv("train/y_train.csv")["Survived"]
