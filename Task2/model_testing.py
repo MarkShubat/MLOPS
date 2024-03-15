@@ -12,7 +12,7 @@ import pandas as pd
 with open('pipeline.pkl', 'rb') as file:
     pipeline = pickle.load(file)
 X_test = pd.read_csv("test/X_test.csv")
-y_test = pd.read_csv("test/y_test.csv").astype(float)
+y_test = pd.read_csv("test/y_test.csv")
 predictions = pipeline.predict(X_test)
 
-print('Model accuracy score:', accuracy_score(y_test.astype(float), predictions.astype(float)))
+print()#'Model accuracy score:', accuracy_score(y_test, predictions))
