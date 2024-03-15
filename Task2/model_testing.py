@@ -15,4 +15,4 @@ X_test = pd.read_csv("test/X_test.csv")
 y_test = pd.read_csv("test/y_test.csv").astype(float)
 predictions = pipeline.predict(X_test)
 
-print('Model accuracy score:', accuracy_score(y_test, predictions))
+print(predictions.dtypes)#'Model accuracy score:', accuracy_score(y_test, predictions))
