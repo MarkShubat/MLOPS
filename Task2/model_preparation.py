@@ -3,7 +3,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
 from model_preprocessing import preprocessor
 from sklearn.metrics import accuracy_score
-
+from joblib import dump
 import numpy as np
 import os
 import pandas as pd
@@ -24,3 +24,5 @@ X_train, X_valid, y_train, y_valid = train_test_split(
 pipeline.fit(X_train, y_train)
 preds = pipeline.predict(X_valid)
 print('Model accuracy score:', accuracy_score(y_valid, preds))
+
+dump(pipeline, 'pipeline.pkl')
