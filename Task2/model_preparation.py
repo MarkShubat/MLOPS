@@ -24,6 +24,6 @@ X_train, X_valid, y_train, y_valid = train_test_split(
 pipeline.fit(X_train, y_train)
 preds = pipeline.predict(X_valid)
 print('Model accuracy score:', accuracy_score(y_valid, preds))
-
+print(preds.ctypes, y_valid.ctypes)
 with open('pipeline.pkl', 'wb') as file:
     pickle.dump(pipeline, file)
