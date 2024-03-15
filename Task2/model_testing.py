@@ -11,7 +11,7 @@ import pandas as pd
 
 pipeline = load('pipeline.pkl')
 X_test = pd.read_csv("test/X_test.csv")
-y_test = pd.read_csv("test/y_test.csv")
+y_test = pd.to_numeric(pd.read_csv("test/y_test.csv"))
 predictions = pipeline.predict(X_test)
 
 print('Model accuracy score:', accuracy_score(y_test, predictions))
