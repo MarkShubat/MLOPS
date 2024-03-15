@@ -4,12 +4,13 @@ from sklearn.pipeline import Pipeline
 from model_preprocessing import preprocessor
 from sklearn.metrics import accuracy_score
 #from model_preparation import pipeline
-from joblib import load
+import pickle
 import numpy as np
 import os
 import pandas as pd
 
-pipeline = load('pipeline.pkl')
+with open('pipeline.pkl', 'rb') as file:
+    pipeline = pickle.load(file)
 X_test = pd.read_csv("test/X_test.csv")
 y_test = pd.read_csv("test/y_test.csv").astype(float)
 predictions = pipeline.predict(X_test)
