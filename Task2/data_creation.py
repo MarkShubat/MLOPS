@@ -15,7 +15,7 @@ def save_datasets(X_train, X_test, y_train, y_test):
     y_test.to_csv("test/y_test.csv")
 
 
-df = pd.read_csv("MLOPS/Task2/titanic.csv")
+df = pd.read_csv("Task2/titanic.csv")
 
 X = df.drop("Survived", axis=1)
 y = df["Survived"]
