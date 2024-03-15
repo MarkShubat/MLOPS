@@ -10,7 +10,7 @@ import os
 import pandas as pd
 
 pipeline = load('pipeline.pkl')
-X_test = pd.read_csv("test/X_test.csv").astype(float)
+X_test = pd.read_csv("test/X_test.csv")
 y_test = pd.read_csv("test/y_test.csv").astype(float)
 predictions = pipeline.predict(X_test)
 
