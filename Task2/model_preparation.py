@@ -3,7 +3,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
 from model_preprocessing import preprocessor
 from sklearn.metrics import accuracy_score
-from joblib import dump
+import pickle
 import numpy as np
 import os
 import pandas as pd
@@ -25,4 +25,5 @@ pipeline.fit(X_train, y_train)
 preds = pipeline.predict(X_valid)
 print('Model accuracy score:', accuracy_score(y_valid, preds))
 
-dump(pipeline, 'pipeline.pkl')
+with open('pipeline.pkl', 'wb') as file:
+    pickle.dump(pipeline, file)
